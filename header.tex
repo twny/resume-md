@@ -1,3 +1,19 @@
-\usepackage[margin=1in, top=0.8in]{geometry}
+% Adjust page margins
+% The geometry package allows for easy page dimension setting.
+% Here, we're setting the left/right margins to 0.75 inches,
+% the top margin to 0.7 inches, and the bottom margin to 0.7 inches.
+\usepackage[margin=0.75in, top=0.7in, bottom=0.7in]{geometry}
+
+% Fonts
+% The next two lines are about setting the document's font.
+% The first line changes the default font family to sans-serif.
+% The second line scales the Helvetica font (a specific type of sans-serif) to be 0.92 times its original size.
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[scaled=0.92]{helvet}
+
+% Adjusting horizontal rules
+% Instead of using the patchcmd approach, we will save the old \rule definition,
+% and then redefine \rule to always use the full line width.
+% this makes a mardown `---` separator span the full type width of the page
+\let\oldrule\rule
+\renewcommand{\rule}[2]{\oldrule{\linewidth}{#2}}
